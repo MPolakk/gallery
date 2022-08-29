@@ -6,16 +6,23 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Gallery</title>
+ <script src="https://kit.fontawesome.com/480acc04d5.js" crossorigin="anonymous"></script>
+ <script src="/script.js" defer></script>
+ <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
- <div class="gallery">
-  <span class="gallery__photonumber"></span>
-  <img class="photonumber__prev" src="" alt="">
-  <img class="photonumber__active" src="" alt="">
-  <img class="photonumber__next" src="" alt="">
-  <button class="gallery__prev"></button>
-  <button class="gallery__next"></button>
+ <div class="container">
+  <div class="gallery">
+   <span class="gallery__photonumber">1/4</span>
+   <div class="gallery__photos">
+    <img class="gallery__prevphoto photo" src="/assets/imgs/img_1.jpg" alt="">
+    <img class="gallery__activephoto photo" src="/assets/imgs/img_3.jpg" alt="">
+    <img class="gallery__nextphoto photo" src="/assets/imgs/img_2.jpg" alt="">
+   </div>
+   <button class="gallery__prev arrow"><i class="fa-solid fa-circle-arrow-left"></i></button>
+   <button class="gallery__next arrow"><i class="fa-solid fa-circle-arrow-right"></i></button>
+  </div>
  </div>
 </body>
 
