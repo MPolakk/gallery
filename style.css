@@ -17,7 +17,7 @@ body {
  height: 80%;
  background-color: #ddd;
  /* overflow:hidden; */
-
+ overflow:hidden;
 }
 
 .arrow {
@@ -47,8 +47,8 @@ body {
 .gallery__photos {
  width: 100%;
  height: 80%;
- position: relative;
  
+ position: relative;
 
 
 }
@@ -58,6 +58,7 @@ body {
  max-height: 100%;
  max-width: 100%;
  transform: translate(-50%);
+ transition: 0.2;
 }
 
 .gallery__prevphoto {
@@ -74,34 +75,20 @@ body {
  background-color: red;
  left: 150%;
 }
-.animationprev {
-
- animation: prev 4s linear;
+.animationphoto {
+ 
+ animation: photo .5s linear 1;
 }
 
-@keyframes prev {
+
+@keyframes photo {
 
  0% {
+  opacity: 0.4;
+ }
 
- }
- 60% {
-  transform: translate(100%);
- }
  100% {
-  transform: translate(100%);
+  opacity: 1;
  }
 }
 
-@keyframes next {
-  0% {
-
-  }
-
-  60% {
-   transform: translate(-100%);
-  }
-  100% {
-   transform: translate(-100%);
-
-  }
-}
