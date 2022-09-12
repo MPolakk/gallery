@@ -1,7 +1,11 @@
+// Gallery
+
 const prevButton = document.querySelector('.gallery__prev');
 const nextButton = document.querySelector('.gallery__next');
 const activePhoto = document.querySelector('.gallery__activephoto');
 const photoNumber = document.querySelector('.gallery__photonumber');
+
+
 
 const listOfPhotos = [
 {src: 'img_1'},
@@ -19,7 +23,11 @@ photoNumber.innerHTML = `${activePhotoNum+1}/${listOfPhotos.length}`
 
 
 const changePhotoPrev = () => {
-  if (activePhotoNum == 0) return
+  if (activePhotoNum == 0) {
+    activePhotoNum = listOfPhotos.length - 1; 
+    photoAnimation();
+    updateAttributes();
+  }
   else {
   if (animationEnd) {
   photoAnimation()
@@ -34,7 +42,11 @@ const changePhotoPrev = () => {
 
 }
 const changePhotoNext = () => {
-  if(activePhotoNum == listOfPhotos.length - 1) {return}
+  if(activePhotoNum == listOfPhotos.length - 1) {
+    activePhotoNum = 0; 
+    photoAnimation();
+    updateAttributes();
+  }
   else {
   if (animationEnd) {
   photoAnimation()
@@ -58,7 +70,6 @@ const photoAnimation = () => {
 }
 
 const updatePhotoNumber = () => {
-  console.log("dziala")
   photoNumber.innerHTML = `${activePhotoNum+1}/${listOfPhotos.length}`
 }
 
@@ -66,5 +77,36 @@ activePhoto.addEventListener('animationend', () => {
   activePhoto.classList.remove('animationphoto');
   animationEnd = true;
 })
+
 prevButton.addEventListener('click', changePhotoPrev);
 nextButton.addEventListener('click', changePhotoNext);
+
+// AutoPlay
+
+const autoPlayButton = document.querySelector('.gallery__auto')
+
+let autoPlayID;
+
+let autoPlayActive = false;
+
+const autoPlay = () => {
+  
+  changePhotoNext();
+ 
+
+}
+const autoPlayTurnOn = () => {
+
+  autoPlayActive = !autoPlayActive;
+  
+  if(autoPlayActive) {
+    autoPlayID = setInterval(autoPlay, 5000)
+  } else {
+    clearInterval(autoPlayID)
+  }
+
+}
+autoPlayButton.addEventListener('click', autoPlayTurnOn)
+// Menu
+
+const menuList = document.querySelector('.menu__list');
