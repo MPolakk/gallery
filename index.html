@@ -35,13 +35,18 @@
 
    <div class="gallery__photos">
     <img class="gallery__activephoto photo " src="/assets/imgs/img_1.jpg" alt="">
-
+    <button class="gallery__prev arrow"><i class="fa-solid fa-circle-arrow-left"></i></button>
+    <button class="gallery__next arrow"><i class="fa-solid fa-circle-arrow-right"></i></button>
    </div>
    <div class="gallery__bar">
     <span class="gallery__photonumber"></span>
-    <button class="gallery__prev arrow"><i class="fa-solid fa-circle-arrow-left"></i></button>
-    <button class="gallery__next arrow"><i class="fa-solid fa-circle-arrow-right"></i></button>
-    <div class="autoplay"><button class="gallery__auto"></button></div>
+
+    <div class="autoplay">
+     <span class="autoplay__description">AutoPlay</span><button class="gallery__auto"></button>
+     <spna class="autoplay__description">Delay</spna><input type="range" min="1" max="10" value="1"
+      class="autoplay__time">
+     <span class="autoplay__timevalue">1s</span>
+    </div>
    </div>
   </div>
 

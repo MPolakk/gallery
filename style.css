@@ -19,36 +19,50 @@ body {
 .gallery {
  position: relative;
  width: 80%;
- height: 70vh;
+ height: 90vh;
 
  
 }
 
 .arrow {
+ overflow:hidden;
  display: block;
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
  font-size: 30px;
+ width: 50px;
+ height: 100px;
  border: none;
- color: white;
  background-color: transparent;
- padding: 10px;
+ 
+ 
 }
 
+.gallery__prev {
 
+}
+.gallery__next {
+
+}
 .arrow:hover {
  background-color: rgba(255, 255, 255, 0.1);
- border-radius: 50%;
+ border-radius: 10%;
 }
 
 .fa-circle-arrow-left, 
 .fa-circle-arrow-right {
+
  background-color: purple;
+ 
  border-radius: 50%;
  
 }
 .gallery__bar {
- display: flex;
- flex-direction: row;
- flex-wrap: wrap;
+ display: grid;
+ /* flex-direction: row;
+ flex-wrap: wrap; */
+ grid-template-columns: repeat(9, 1fr);
  min-width: 100%;
  justify-content: center;
  justify-items: center;
@@ -67,7 +81,7 @@ body {
 }
 .gallery__photos {
  width: 100%;
- height: 80%;
+ height: 70%;
  position: relative;
  
 
@@ -95,6 +109,9 @@ body {
  animation: photo .5s linear 1;
 }
 .autoplay {
+ display: grid;
+ grid-column: 8/9;
+ justify-items: center;
  min-width: 100%;
  text-align: center;
 }
@@ -114,6 +131,48 @@ body {
  left: 1px;
  top: 1px;
  background-color: purple;
+ transition: .5s;
+}
+.gallery__autoOn::after {
+
+left: 24px;
+}
+
+.autoplay__time {
+ margin-top: 20px;
+ /* grid-column: 9; */
+ appearance: none;
+ width: 25%;
+ outline: none;
+ background: white;
+ border-radius: 15px;
+ color: purple;
+}
+
+.autoplay__time::-webkit-slider-thumb {
+ -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: purple;
+  box-shadow: 0 0 2px 0 #555;
+}
+
+.autoplay__timevalue {
+ color: purple;
+ margin: 10px;
+ padding: 5px;
+ width: 20px;
+ height: 20px;
+ font-size: 16px;
+ font-weight: bold;
+ border: 3px solid purple;
+ border-radius: 50%;
+}
+
+.autoplay__description {
+ display: flex;
+ color: purple;
 }
 
 @keyframes photo {
@@ -126,5 +185,6 @@ body {
   opacity: 1;
  }
 }
+
 
 /* Menu */
