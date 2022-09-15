@@ -65,7 +65,7 @@ const changePhotoNext = (e) => {
 }
 const updateAttributes = () => {
   updatePhotoNumber()
-  activePhoto.setAttribute('src', `/assets/imgs/${listOfPhotos[activePhotoNum].src}.jpg`)
+  activePhoto.setAttribute('src', `./assets/imgs/${listOfPhotos[activePhotoNum].src}.jpg`)
   
 }
 
