@@ -1,10 +1,11 @@
 // Gallery
+const body = document.querySelector('body');
 const container = document.querySelector('.container');
 const prevButton = document.querySelector('.gallery__prev');
 const nextButton = document.querySelector('.gallery__next');
 const activePhoto = document.querySelector('.gallery__activephoto');
 const photoNumber = document.querySelector('.gallery__photonumber');
-
+const gallery = document.querySelector('.gallery__photos')
 
 
 const listOfPhotos = [
@@ -87,18 +88,18 @@ const updatePhotoNumber = () => {
 }
 const changeButtonsPosition = (e) => {
   imageWidth = activePhoto.clientWidth;
-  containerWidth = container.clientWidth;
-  console.log(((containerWidth - imageWidth) / 2) - ((containerWidth - imageWidth) / 2))
-  prevButton.style.left = (containerWidth - imageWidth) / 2 - 150  + "px"
-  nextButton.style.right = (containerWidth - imageWidth) / 2 - 150 + "px"
-
-
+  galleryWidth = gallery.clientWidth;
+  prevButton.style.left = (galleryWidth - imageWidth) / 2  + "px"
+  nextButton.style.right = (galleryWidth - imageWidth) / 2 + "px"
+  
+  
 }
 
 updateAttributes();
 prevButton.addEventListener('click', changePhotoPrev);
 nextButton.addEventListener('click', changePhotoNext);
 activePhoto.addEventListener('load', changeButtonsPosition)
+addEventListener('resize', changeButtonsPosition)
 // AutoPlay
 
 const autoPlayButton = document.querySelector('.gallery__auto')
