@@ -31,7 +31,7 @@ body {
  top: 50%;
  transform: translateY(-50%);
  font-size: 30px;
- width: 50px;
+ width: 100px;
  height: 100%;
  border: none;
  background-color: transparent;
@@ -41,20 +41,20 @@ body {
 
 .arrow:hover {
  background-color: rgba(255, 255, 255, 0.1);
- border-radius: 10%;
+
 }
 
 .fa-circle-arrow-left, 
 .fa-circle-arrow-right {
+  color:rgba(255, 255, 255, 0.2);
 
- background-color: purple;
  
- border-radius: 50%;
+ 
  
 }
 .gallery__bar {
  display: grid;
- 
+
  /* flex-direction: row;
  flex-wrap: wrap; */
  grid-template-columns: repeat(9, 1fr);
@@ -83,8 +83,11 @@ body {
  
 
 }
+.gallery__photosanimation {
+  animation: fullscreen 1s linear 1;
+}
 .photo {
- position: relative;
+ position: absolute;
  display: block;
  max-height: 100%;
  max-width: 100%;
@@ -105,13 +108,7 @@ body {
  
  animation: photo .5s linear 1;
 }
-.autoplay {
- /* display: grid;
- grid-column: 8/9;
- justify-items: center;
- min-width: 100%;
- text-align: center; */
-}
+
 .gallery__auto {
  position: relative;
  margin-top: 20px;
@@ -129,7 +126,7 @@ body {
  border-radius: 15px;
  left: 1px;
  top: 1px;
- background-color: purple;
+ background-color: black;
  transition: .5s;
 }
 .gallery__autoOn::after {
@@ -146,7 +143,6 @@ left: 24px;
  outline: none;
  background: white;
  border-radius: 15px;
- color: purple;
 }
 
 .autoplay__time::-webkit-slider-thumb {
@@ -154,12 +150,13 @@ left: 24px;
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: purple;
+  background: black;
   box-shadow: 0 0 2px 0 #555;
+  margin: 1px;
 }
 
 .autoplay__timevalue {
- color: purple;
+ color: white;
  font-size: 14px;
  font-weight: bold;
  
@@ -169,16 +166,16 @@ left: 24px;
 .autoplay__description-delay {
  display: flex;
  font-weight: bold;
- color: purple;
+ color: white;
  grid-area: 2/8/2/9;
- font-size: 12px;
+ font-size: 14px;
  margin: 0;
  
 }
 .autoplay__description-autoplay {
   display: flex;
   font-weight: bold;
-  color: purple;
+  color: white;
   grid-area: 2/2/2/3;
   font-size: 12px;
   margin: 0;
@@ -195,5 +192,13 @@ left: 24px;
  }
 }
 
+@keyframes fullscreen {
 
+  0% {
+    height: 70%;
+  }
+  100% {
+    height: 100%;
+  }
+}
 /* Menu */

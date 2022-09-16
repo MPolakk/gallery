@@ -47,7 +47,8 @@ const changePhotoPrev = () => {
 
 }
 const changePhotoNext = (e) => {
-  
+ 
+ 
   if(activePhotoNum == listOfPhotos.length - 1) {
     activePhotoNum = 0; 
     photoAnimation();
@@ -89,10 +90,11 @@ const updatePhotoNumber = () => {
 const changeButtonsPosition = (e) => {
   imageWidth = activePhoto.clientWidth;
   galleryWidth = gallery.clientWidth;
+  imageHeigth = activePhoto.clientHeight;
+  galleryHeigth = gallery.clientHeight;
   prevButton.style.left = (galleryWidth - imageWidth) / 2  + "px"
   nextButton.style.right = (galleryWidth - imageWidth) / 2 + "px"
-  
-  
+  gallery.style.height = `${activePhoto.clientHeight}px`
 }
 
 updateAttributes();
@@ -154,9 +156,34 @@ const changeRange = (e) => {
 range.addEventListener('mouseup', changeRange)
 
 
+//FullScreen
 
+const galleryBar = document.querySelector('.gallery__bar');
+let doubleClick = 0
 
+const fullScreen = () => {
+  doubleClick++
+  if(doubleClick == 2) {
+    activePhoto.style.height = "100%";
+    gallery.style.height = "100%";
+    galleryBar.style.display = "none";
+    
+    console.log(activePhoto.clientHeight)
+   
+    changeButtonsPosition()
+    document.documentElement.requestFullscreen();
+  }
+  if(doubleClick == 4) {
+    doubleClick = 0;
+    activePhoto.style.height = "";
+    gallery.style.height = "70%";
+    galleryBar.style.display = "";
+    changeButtonsPosition()
+    document.exitFullscreen();
+  }
+}
 
+activePhoto.addEventListener('click', fullScreen)
 
 
 
